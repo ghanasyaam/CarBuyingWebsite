@@ -6,6 +6,11 @@ import carouselImage3 from './backiee-274078-landscape.jpg';
 import footerLogo from './pngwing.com (2).png'
 import navLogo from './pngimg.com - porsche_logo_PNG9.png'
 import './HomeStyle.css';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faXTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
+
 
 function Homepage() {
   function openPage(model) {
@@ -43,10 +48,10 @@ function Homepage() {
             <a className="nav-links" href="../models_datta/details.html">Models</a>
             <a className="nav-links" href="">Brands</a>
             <a className="nav-links" href="#">Ownership</a>
-            <a className="nav-links" href="#">Corse</a>
+            <Link className="nav-links" to="/quote">Corse</Link>
           </div>
           <div className="nav-middle">
-            <img className="nav-logo" src={footerLogo} alt="" />
+            <img className="nav-logo" src={navLogo} alt="" />
           </div>
           <div className="nav-right"></div>
         </nav>
@@ -59,21 +64,27 @@ function Homepage() {
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active">
+            <div class="carousel-image-container">
               <img src={carouselImage1} className="d-block w-100" alt="..." />
+              </div>
               <div className="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
             </div>
             <div className="carousel-item">
+            <div class="carousel-image-container">
               <img src={carouselImage2} className="d-block w-100" alt="..." />
+              </div>
               <div className="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
               </div>
             </div>
             <div className="carousel-item">
+            <div class="carousel-image-container">
               <img src={carouselImage3} className="d-block w-100" alt="..." />
+              </div>
               <div className="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
@@ -166,10 +177,8 @@ function Homepage() {
             </div>
           </div>
           <div className="footer-social-media" id="footer-social-media">
-            <img className="footer-social-media-icons" src="./pngwing.com.png" alt="Social Media Icon 1" />
-            <img className="footer-social-media-icons" src="./pngwing.com (1).png" alt="Social Media Icon 2" />
-            <img className="footer-social-media-icons" src="./Instagram.png" alt="Instagram" />
-            <img className="footer-social-media-icons" src="./YouTube.png" alt="YouTube" />
+          <Link  className='social-media-links'><FontAwesomeIcon icon={faFacebook} />  Facebook</Link>
+          <Link  className='social-media-links'><FontAwesomeIcon icon={faXTwitter} />  Twitter</Link>          <Link  className='social-media-links'><FontAwesomeIcon icon={faLinkedin} />  LinkedIn</Link>          <Link  className='social-media-links'><FontAwesomeIcon icon={faInstagram} />  Instagram</Link>
           </div>
         </div>
       </footer>
