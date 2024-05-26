@@ -31,6 +31,17 @@ header{
 .nav-right{
     width: 45vw;
     height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#user-email{
+    border-radius: 2vh;
+    font-family: "Orbitron", sans-serif;
+    border: none;
+    color: black;
+    padding: 2vh;
+    background-color: #ffffff65;
 }
 .nav-middle{
     width: 10vw;

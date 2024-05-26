@@ -9,10 +9,21 @@ import './HomeStyle.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faXTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {useLocation, useNavigate} from 'react-router-dom';
+
 
 
 
 function Homepage() {
+  
+    const location = useLocation();
+    const navigate = useNavigate();
+    const userId = location.state?.id || 'Guest';
+
+    const handleSignupClick = () => {
+      navigate('/signup');
+  };
+
   function openPage(model) {
     let url;
     switch (model) {
@@ -53,7 +64,7 @@ function Homepage() {
           <div className="nav-middle">
             <img className="nav-logo" src={navLogo} alt="" />
           </div>
-          <div className="nav-right"></div>
+          <div  className="nav-right"><button id="user-email" onClick={handleSignupClick}>{userId}</button></div>
         </nav>
 
         <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
