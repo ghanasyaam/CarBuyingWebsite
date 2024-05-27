@@ -21,7 +21,7 @@ function Signup() {
                     alert("User already exists")
                 }
                 else if(res.data=="notexist"){
-                    history("/home",{state:{id:email}})
+                    history("/",{state:{id:email}})
                 }
             })
             .catch(e=>{

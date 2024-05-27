@@ -101,56 +101,70 @@ const App = () => {
     }
   };
 
-  return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <h1>Signup</h1>
-      <form onSubmit={handleSignup}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Signup</button>
-      </form>
-      <div>
-        {message && <p>{message}</p>}
-      </div>
-    </div>
+  return React.createElement(
+    'div',
+    null,
+    React.createElement('h1', null, 'Login'),
+    React.createElement(
+      'form',
+      { onSubmit: handleLogin },
+      React.createElement(
+        'div',
+        null,
+        React.createElement('label', null, 'Email:'),
+        React.createElement('input', {
+          type: 'email',
+          value: email,
+          onChange: (e) => setEmail(e.target.value),
+          required: true
+        })
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement('label', null, 'Password:'),
+        React.createElement('input', {
+          type: 'password',
+          value: password,
+          onChange: (e) => setPassword(e.target.value),
+          required: true
+        })
+      ),
+      React.createElement('button', { type: 'submit' }, 'Login')
+    ),
+    React.createElement('h1', null, 'Signup'),
+    React.createElement(
+      'form',
+      { onSubmit: handleSignup },
+      React.createElement(
+        'div',
+        null,
+        React.createElement('label', null, 'Email:'),
+        React.createElement('input', {
+          type: 'email',
+          value: email,
+          onChange: (e) => setEmail(e.target.value),
+          required: true
+        })
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement('label', null, 'Password:'),
+        React.createElement('input', {
+          type: 'password',
+          value: password,
+          onChange: (e) => setPassword(e.target.value),
+          required: true
+        })
+      ),
+      React.createElement('button', { type: 'submit' }, 'Signup')
+    ),
+    React.createElement(
+      'div',
+      null,
+      message && React.createElement('p', null, message)
+    )
   );
 };
 
