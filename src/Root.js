@@ -6,6 +6,9 @@ import Home from './Pages/UserAuthentication/Home';
 import Login from './Pages/UserAuthentication/Login';
 import Signup from './Pages/UserAuthentication/Signup';
 import Admin from './Pages/Admin/Admin';
+import Overview from './Pages/Overview/Overview';
+import LoanCalculator from './Pages/Overview/emi';
+import Summary from './Pages/Summary/summary';
 
 function Root() {
   return (
