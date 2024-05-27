@@ -21,7 +21,7 @@ function Homepage() {
     const userId = location.state?.id || 'Guest';
 
     const handleSignupClick = () => {
-      navigate('/signup');
+      navigate('/Overview');
   };
 
   function openPage(model) {
