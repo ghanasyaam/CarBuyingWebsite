@@ -20,6 +20,9 @@ function Root() {
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/admin" element={<Admin/>}/>
+        <Route path='/Overview' element={<Overview/>}/>
+        <Route path='/Overview/LoanCalculator' element={<LoanCalculator/>}/>
+        <Route path='/Summary' element={<Summary/>}/>
       </Routes>
     </BrowserRouter>
   );
