@@ -6,6 +6,9 @@ import Home from './Pages/UserAuthentication/Home';
 import Login from './Pages/UserAuthentication/Login';
 import Signup from './Pages/UserAuthentication/Signup';
 import Admin from './Pages/Admin/Admin';
+import Overview from './Pages/Overview/Overview';
+import LoanCalculator from './Pages/Overview/emi';
+import Summary from './Pages/Summary/summary';
 
 function Root() {
   return (
@@ -17,6 +20,9 @@ function Root() {
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/admin" element={<Admin/>}/>
+        <Route path='/Overview' element={<Overview/>}/>
+        <Route path='/Overview/LoanCalculator' element={<LoanCalculator/>}/>
+        <Route path='/Summary' element={<Summary/>}/>
       </Routes>
     </BrowserRouter>
   );
