@@ -1,4 +1,4 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose");
 
 mongoose.connect('mongodb://0.0.0.0:27017/react-login-tut', {
     useNewUrlParser: true,
@@ -9,18 +9,42 @@ mongoose.connect('mongodb://0.0.0.0:27017/react-login-tut', {
     console.log('Failed to connect to MongoDB', error);
 });
 
-
-const newSchema=new mongoose.Schema({
-    email:{
-        type:String,
-        required:true
+const userSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
     }
-})
+});
 
-const collection = mongoose.model("collection",newSchema)
+const User = mongoose.model("User", userSchema);
 
-module.exports=collection
+
+const formDataSchema = new mongoose.Schema({
+    carName: {
+        type: String,
+        required: true,
+        unique:true,
+    },
+    carouselImages: {
+        image1: { type: String, required: true },
+        image2: { type: String, required: true },
+        image3: { type: String, required: true },
+    },
+    colorImages: {
+        red: { type: String, required: true },
+        black: { type: String, required: true },
+        grey: { type: String, required: true },
+        white: { type: String, required: true }
+    }
+});
+
+const FormData = mongoose.model("FormData", formDataSchema);
+
+module.exports = {
+    User,
+    FormData
+};

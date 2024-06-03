@@ -1,15 +1,18 @@
 const express = require('express');
 const cors = require('cors');
-const collection = require('./src/Pages/UserAuthentication/mongo'); 
+const bodyParser = require('body-parser');
+const { User, FormData } = require('./src/Pages/UserAuthentication/mongo');  
+
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 app.post('/', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const user = await collection.findOne({ email });
+        const user = await User.findOne({ email });
 
         if (user) {
             if (user.password === password) {
@@ -30,18 +33,41 @@ app.post('/signup', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const existingUser = await collection.findOne({ email });
+        const existingUser = await User.findOne({ email });
 
         if (existingUser) {
             res.send('exist');
         } else {
-            const newUser = new collection({ email, password });
+            const newUser = new User({ email, password });
             await newUser.save();
             res.send('notexist');
         }
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal server error');
+    }
+});
+
+app.post('/admin', async (req, res) => {
+    const { carName, carouselImages, colorImages } = req.body;
+
+    try {
+        const existingData = await FormData.findOne({ carName });
+
+        if (existingData) {
+            res.send('exist');
+        } else {
+            const formData = new FormData({
+                carName,
+                carouselImages,
+                colorImages
+            });
+            await formData.save();
+            res.send('Form data saved successfully!');
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('An error occurred while saving the form data.');
     }
 });
 
