@@ -158,7 +158,7 @@ const Summary = () => {
                     <p className="fw-bold"><span id="Total"></span></p>
                   </div>
                   <button className="Summary button-box" onClick={paymentcompleted}>
-                    <span id="finalprice"></span>
+                    <span id="finalprice">Confirm Purchase</span>
                   </button>
                 </div>
               </div>

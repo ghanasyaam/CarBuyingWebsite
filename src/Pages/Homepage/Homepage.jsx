@@ -28,27 +28,26 @@ function Homepage() {
     let url;
     switch (model) {
       case '911':
-        url = "../Overview/car.html?model=p911";
+        navigate('/Overview?model=p911');
         break;
       case 'Cayenne':
-        url = "../Overview/car.html?model=Cayenne";
+        navigate('/Overview?model=Cayenne');
         break;
       case '718':
-        url = "../Overview/car.html?model=p718";
+        navigate('/Overview?model=p718');
         break;
       case 'Taycan':
-        url = "../Overview/car.html?model=Taycan";
+        navigate('/Overview?model=Taycan');        
         break;
       case 'Macan':
-        url = "../Overview/car.html?model=Macan";
+        navigate('/Overview?model=Macan');        
         break;
       case 'Panamera':
-        url = "../Overview/car.html?model=Panamera";
+        navigate('/Overview?model=Panamera');        
         break;
       default:
-        url = "#";
-    }
-    window.open(url);
+        navigate('#');    
+      }
   }
 
   return (
@@ -56,10 +55,10 @@ function Homepage() {
      <header>
      <nav className="nav">
           <div className="nav-left">
-            <a className="nav-links" href="../models_datta/details.html">Models</a>
-            <a className="nav-links" href="">Brands</a>
-            <a className="nav-links" href="#">Ownership</a>
-            <Link className="nav-links" to="/quote">Corse</Link>
+            <Link className="nav-links" to='/details'>Models</Link>
+            <Link className="nav-links" to='https://www.google.com/maps/search/Porsche/@13.6129087,69.5921315,6z/data=!3m1!4b1?authuser=0&entry=ttu'>Dealers</Link>
+            <a className="nav-links" href="#footer-social-media">Contact Us</a>
+            <Link className="nav-links" to="/quote">Quote</Link>
           </div>
           <div className="nav-middle">
             <img className="nav-logo" src={navLogo} alt="" />
@@ -113,9 +112,9 @@ function Homepage() {
         </div>
       </header>
       <section className="section-one">
-        <a href="../Overview/car.html?model=p911"><button id="division-button1" className="division-button"></button></a>
-        <a href="../Overview/car.html?model=Taycan"><button id="division-button2" className="division-button"></button></a>
-        <a href="../Overview/car.html?model=Panamera"><button id="division-button3" className="division-button"></button></a>
+        <Link to="/overview?model=Panamera"><button id="division-button1" className="division-button"></button></Link>
+        <Link to="/overview?model=Taycan"><button id="division-button2" className="division-button"></button></Link>
+        <Link to="/overview?model=p911"><button id="division-button3" className="division-button"></button></Link>
       </section>
       <footer>
         <div className="footer-1">
@@ -125,11 +124,11 @@ function Homepage() {
               <button id="footer-top-button-2" className="footer-top-buttons"><strong>BUILD YOUR OWN</strong></button>
             </div>
             <div id="two-button-container-2" className="two-button-container">
-              <a href="#footer-social-media"><button id="footer-top-button" className="footer-top-buttons"><strong>GET IN TOUCH</strong></button></a>
+              <Link to='/touch'><button id="footer-top-button" className="footer-top-buttons"><strong>GET IN TOUCH</strong></button></Link>
               <button id="footer-top-button" className="footer-top-buttons"><strong>TEST DRIVE</strong></button>
             </div>
             <div id="two-button-container-3" className="two-button-container">
-              <a href="../HomePage/Quote.html"><button id="footer-top-button" className="footer-top-buttons"><strong>QUOTE</strong></button></a>
+              <Link to='/quote'><button id="footer-top-button" className="footer-top-buttons"><strong>QUOTE</strong></button></Link>
               <button id="footer-top-button" className="footer-top-buttons"><strong>DEALER LOCATOR</strong></button>
             </div>
           </div>
@@ -173,7 +172,7 @@ function Homepage() {
             <div className="footer-link-boxes">
               <button className="footer-select-buttons">Services & Aftersales</button>
               <button className="footer-select-buttons">Catalogues</button>
-              <a href="https://www.google.com/maps/search/Porsche/@13.6129087,69.5921315,6z/data=!3m1!4b1?authuser=0&entry=ttu"><button className="footer-select-buttons">Dealer Locator</button></a>
+              <Link to="https://www.google.com/maps/search/Porsche/@13.6129087,69.5921315,6z/data=!3m1!4b1?authuser=0&entry=ttu"><button className="footer-select-buttons">Dealer Locator</button></Link>
               <button className="footer-select-buttons">Build and Price</button>
             </div>
             <div className="footer-link-boxes">
@@ -188,8 +187,8 @@ function Homepage() {
             </div>
           </div>
           <div className="footer-social-media" id="footer-social-media">
-          <Link  className='social-media-links'><FontAwesomeIcon icon={faFacebook} />  Facebook</Link>
-          <Link  className='social-media-links'><FontAwesomeIcon icon={faXTwitter} />  Twitter</Link>          <Link  className='social-media-links'><FontAwesomeIcon icon={faLinkedin} />  LinkedIn</Link>          <Link  className='social-media-links'><FontAwesomeIcon icon={faInstagram} />  Instagram</Link>
+          <Link to='https://www.facebook.com/porsche'  className='social-media-links'><FontAwesomeIcon icon={faFacebook} />  Facebook</Link>
+          <Link to='https://twitter.com/Porsche' className='social-media-links'><FontAwesomeIcon icon={faXTwitter} />  Twitter</Link>          <Link to='https://www.linkedin.com/company/porsche-ag/'  className='social-media-links'><FontAwesomeIcon icon={faLinkedin} />  LinkedIn</Link>          <Link to='https://www.instagram.com/porsche/' className='social-media-links'><FontAwesomeIcon icon={faInstagram} />  Instagram</Link>
           </div>
         </div>
       </footer>

@@ -5,6 +5,7 @@ import { colorimageSources } from './Components & Constants/constants';
 import FAQ from './Components & Constants/drop';
 import Navigator from './Components & Constants/Navgitor';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Overview = () => {
   const [model, setModel] = useState('');
@@ -81,7 +82,7 @@ const Overview = () => {
       <br />
       <div id="container">
         <div id="Heading">
-          <h3 id="CarName">718 Boxster</h3>
+          <h3 id="CarName">{model}</h3>
         </div>
         <br />
         <br />
@@ -172,10 +173,10 @@ const Overview = () => {
             </div>
             <br />
             <br />
-            <button className="Summary button-box" onClick={toSummary}>
+           <Link to='/Summary' style={{ textDecoration: 'none' }}><button className="Summary button-box">
               <i className="fa fa-angle-right" style={{ fontSize: 36 }} />
               <span>Buy Now</span>
-            </button>
+            </button></Link>
             {isEmiModalOpen && (
               <div id="emiModal" className="modal" style={{ display: 'block' }}>
                 <div className="modal-content" style={{ width: "55%" }}>

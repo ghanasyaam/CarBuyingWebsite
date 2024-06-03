@@ -9,6 +9,8 @@ import Admin from './Pages/Admin/Admin';
 import Overview from './Pages/Overview/Overview';
 import LoanCalculator from './Pages/Overview/emi';
 import Summary from './Pages/Summary/summary';
+import Details from './Pages/Models/Details';
+import GetInTouch from './Pages/Homepage/GetInTouch/getInTouch';
 
 function Root() {
   return (
@@ -23,6 +25,8 @@ function Root() {
         <Route path='/Overview' element={<Overview/>}/>
         <Route path='/Overview/LoanCalculator' element={<LoanCalculator/>}/>
         <Route path='/Summary' element={<Summary/>}/>
+        <Route path='/details' element={<Details/>}/>
+        <Route path='/touch' element={<GetInTouch/>}/>
       </Routes>
     </BrowserRouter>
   );
