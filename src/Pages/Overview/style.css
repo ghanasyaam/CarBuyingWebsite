@@ -45,6 +45,10 @@
 .nav-item a i {
     margin-right: 5px;
 }
+.nav{
+    width: 100vw;
+    height: 15px;
+}
 
 
 #Heading {
@@ -162,7 +166,7 @@
 
 .button-box {
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 30px;
     background-color: #f0f0f0;
     display: flex;
     justify-content: space-between;
@@ -175,6 +179,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 30px;
 }
 
 
@@ -432,7 +437,7 @@
 
 
 .Right-Overview h2{
-    font-size: 60px;}
+    font-size: 3vw;}
 #Heading h3{
     font-size: 60px;}
 
