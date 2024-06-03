@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import './styl.css';
 
 function Login() {
     const navigate = useNavigate();
@@ -32,26 +33,34 @@ function Login() {
     
 
     return (
-        <div className="login">
-            <h1>Login</h1>
-            <form onSubmit={submit}>
-                <input
+<div className="cbw-body">
+<div className="cbw-container">
+<h1>Car Buying Website</h1>
+
+<div id="UserLogin" className="cbw-tabcontent">
+  <h2>User Login</h2>
+  <form className="cbw-form" id="userLoginForm" onSubmit={submit}>
+    <label htmlFor="userUsername">Username:</label>
+    <input
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                 />
-                <input
+    <label htmlFor="userPassword">Password:</label>
+    <input
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                 />
-                <input type="submit" value="Submit" />
-            </form>
-            <br />
-            <p>OR</p>
+
+    <input type="submit" value="Login" className="cbw-button" />
+    <p>OR</p>
             <br />
             <Link to="/signup">Signup Page</Link>
-        </div>
+  </form>
+</div>
+</div>
+</div>
     );
 }
 

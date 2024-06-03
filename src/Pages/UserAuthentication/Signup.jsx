@@ -1,63 +1,64 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { useNavigate, Link } from "react-router-dom"
-
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+import './styl.css';
 
 function Signup() {
-    const history=useNavigate();
+    const navigate = useNavigate();
 
-    const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    async function submit(e){
+    async function submit(e) {
         e.preventDefault();
 
-        try{
-            await axios.post("http://localhost:8000/signup",{
-                email,password
-            })
-            .then(res=>{
-                if(res.data=="exist"){
-                    alert("User already exists")
-                }
-                else if(res.data=="notexist"){
-                    history("/",{state:{id:email}})
-                }
-            })
-            .catch(e=>{
-                alert("wrong details")
-                console.log(e);
-            })
+        try {
+            const res = await axios.post("http://localhost:8000/signup", {
+                email,
+                password
+            });
 
+            if (res.data === "exist") {
+                alert("User already exists");
+            } else if (res.data === "notexist") {
+                navigate("/", { state: { id: email } });
+            }
+        } catch (error) {
+            alert("Wrong details");
+            console.error(error);
         }
-        catch(e){
-            console.log(e);
-
-        }
-
     }
 
-
     return (
-        <div className="login">
-
-            <h1>Signup</h1>
-
-            <form action="POST">
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  />
-                <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
-                <input type="submit" onClick={submit} />
-
-            </form>
-
-            <br />
-            <p>OR</p>
-            <br />
-
-            <Link to="/login">Login Page</Link>
-
+        <div className="cbw-body">
+            <div className="cbw-container">
+                <h1>Car Buying Website</h1>
+                <h2>Signup</h2>
+                <form className="cbw-form" onSubmit={submit}>
+                    <label htmlFor="signupEmail">Email:</label>
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Email"
+                        required
+                    />
+                    <label htmlFor="signupPassword">Password:</label>
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Password"
+                        required
+                    />
+                    <input type="submit" value="Signup" className="cbw-button" />
+                    <p>OR</p>
+                    <br />
+                    <Link to="/login">Login Page</Link>
+                </form>
+            </div>
         </div>
-    )
+    );
 }
 
 export default Signup;

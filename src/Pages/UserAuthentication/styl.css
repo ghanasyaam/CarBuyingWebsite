@@ -1,0 +1,65 @@
+.cbw-body {
+    font-family: Arial, sans-serif;
+    background: url('https://i.pinimg.com/originals/40/87/9f/40879f017315f2bfbe73ea05dcd93b61.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.cbw-container {
+    background-color: rgba(90, 86, 86, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+}
+
+.cbw-container h1 {
+    margin-bottom: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.cbw-container h2 {
+    color: rgb(255, 255, 255);
+}
+
+.cbw-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.cbw-form label {
+    margin: 10px 0 5px;
+    color: wh;
+}
+
+.cbw-form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.cbw-button {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cbw-button:hover {
+    background-color: #4cae4c;
+}
+
+@media (max-width: 600px) {
+    .cbw-container {
+        width: 90%;
+        padding: 10px;
+    }
+}
