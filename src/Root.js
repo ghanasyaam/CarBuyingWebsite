@@ -12,12 +12,14 @@ import Summary from './Pages/Summary/summary';
 import Details from './Pages/Models/Details';
 import GetInTouch from './Pages/Homepage/GetInTouch/getInTouch';
 import Trial from './Pages/Portfolio/Trial';
+import Homepage from './Pages/Homepage/Homepage';
 
 function Root() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/homepage" element={<Homepage />} />
         <Route path="/quote" element={<Quote />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>

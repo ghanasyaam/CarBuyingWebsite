@@ -21,7 +21,7 @@ function Login() {
             if (email === "ghanasyaaam@gmail.com") {
                 navigate("/admin");
             } else if (res.data === "exist") {
-                navigate("/", { state: { id: email } });
+                navigate("/homepage", { state: { id: email } });
             } else if (res.data === "notexist") {
                 alert("User has not signed up");
             }
