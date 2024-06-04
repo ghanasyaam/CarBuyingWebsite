@@ -9,6 +9,11 @@ header{
     flex-direction: column;
     background-color: black;
 }
+#aaa{
+    font-weight: 900;
+    font-size: 2.4vh;
+    margin-bottom: 2vh;
+}
 .nav{
     width: 100vw;
     height: 15vh;
