@@ -48,6 +48,22 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+app.get('/admin/car/:model', async (req, res) => {
+    const { model } = req.params;
+    try {
+      const carData = await FormData.findOne({ carName: model });
+      if (carData) {
+        res.json(carData);
+      } else {
+        res.status(404).send('Car model not found');
+      }
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('An error occurred while fetching the car data.');
+    }
+  });
+  
+
 app.post('/admin', async (req, res) => {
     const { carName, carouselImages, colorImages } = req.body;
 
