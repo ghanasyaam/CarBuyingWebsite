@@ -1,40 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import axios from 'axios';
+import { useLocation, Link } from 'react-router-dom';
 
 import { colorimageSources } from './Components & Constants/constants';
 import FAQ from './Components & Constants/drop';
 import Navigator from './Components & Constants/Navgitor';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 const Overview = () => {
   const [model, setModel] = useState('');
+  const [carData, setCarData] = useState(null);
   const [color, setColor] = useState('red');
   const [isEmiModalOpen, setIsEmiModalOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const userId = location.state?.id || 'Guest';
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const modelParam = urlParams.get('model');
     if (modelParam) {
       setModel(modelParam);
+      fetchCarData(modelParam);
     }
   }, []);
 
+  const fetchCarData = async (model) => {
+    try {
+      const response = await axios.get(`http://localhost:8000/admin/car/${model}`);
+      setCarData(response.data);
+    } catch (error) {
+      console.error('Error fetching car data:', error);
+    }
+  };
+
   useEffect(() => {
-    if (model && colorimageSources[model]) {
+    if (carData && carData.colorImages) {
       const colorIndex = ['red', 'black', 'grey', 'white'].indexOf(color);
       if (colorIndex !== -1) {
-        const imageUrl = colorimageSources[model][colorIndex];
+        const imageUrl = carData.colorImages[color];
         if (imageUrl) {
           document.getElementById('color-image').src = imageUrl;
         }
       }
     }
-  }, [model, color]);
+  }, [carData, color]);
 
   const details = [
     {
@@ -61,18 +70,6 @@ const Overview = () => {
 
   const closeEmiCalculator = () => {
     setIsEmiModalOpen(false);
-  };
-
-  const toSummary = () => {
-    const url = new URL(window.location.href);
-    const model = url.searchParams.get('model');
-    const summaryUrl = new URL('/Summary/summary.html', window.location.origin);
-
-    if (model) {
-      summaryUrl.searchParams.set('model', model);
-    }
-
-    window.location.href = summaryUrl.href;
   };
 
   return (
@@ -115,25 +112,25 @@ const Overview = () => {
               <div className="carousel-item active">
                 <img
                   id="car_1"
-                  src=""
+                  src={carData?.carouselImages?.image1 || ''}
                   className="d-block w-100"
-                  alt="hello"
+                  alt="Car Image 1"
                 />
               </div>
               <div className="carousel-item">
                 <img
                   id="car_2"
-                  src=""
+                  src={carData?.carouselImages?.image2 || ''}
                   className="d-block w-100"
-                  alt="..."
+                  alt="Car Image 2"
                 />
               </div>
               <div className="carousel-item">
                 <img
                   id="car_3"
-                  src=""
+                  src={carData?.carouselImages?.image3 || ''}
                   className="d-block w-100"
-                  alt="..."
+                  alt="Car Image 3"
                 />
               </div>
             </div>
