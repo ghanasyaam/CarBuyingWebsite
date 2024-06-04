@@ -9,12 +9,12 @@ const Navigator = () =>{
         <nav>
           <ul className="nav nav-pills">
             <li className="nav-item">
-              <a className="nav-link" href="/models_datta/details.html">
+              <Link className="nav-link" to="/details">
                 Models
-              </a>
+              </Link>
             </li>
             <li className="nav-item active">
-              <Link className="nav-link" to='/'>
+              <Link className="nav-link" to=''>
                 1. Overview
               </Link>
             </li>

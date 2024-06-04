@@ -155,8 +155,7 @@ const Overview = () => {
           </div>
           <div className="Right-Overview">
             <br />
-            <h2>Rs. 1.44 - 1.74 Crore</h2>
-            <br />
+            <h2>{carData?.price || 'Price not available'}</h2>            <br />
             <div
               className="Emi-Calculator button-box"
               style={{ display: "flex", flexDirection: "column", gap: 20 }}
@@ -171,7 +170,7 @@ const Overview = () => {
             </div>
             <br />
             <br />
-           <Link to='/Summary' style={{ textDecoration: 'none' }}><button className="Summary button-box">
+           <Link to={`/Summary?model=${model}`} style={{ textDecoration: 'none' }}><button className="Summary button-box">
               <i className="fa fa-angle-right" style={{ fontSize: 36 }} />
               <span>Buy Now</span>
             </button></Link>

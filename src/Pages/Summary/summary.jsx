@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import axios from 'axios';
 
 const Summary = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const Summary = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [carData, setCarData] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -44,6 +46,23 @@ const Summary = () => {
     }
   };
 
+  const fetchCarData = async (model) => {
+    try {
+      const response = await axios.get(`http://localhost:8000/admin/car/${model}`);
+      setCarData(response.data);
+    } catch (error) {
+      console.error('Error fetching car data:', error);
+    }
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const model = urlParams.get('model');
+    if (model) {
+      fetchCarData(model);
+    }
+  }, []);
+
   return (
     <div className="container d-lg-flex">
       <div className="box-1 bg-light user">
@@ -56,9 +75,10 @@ const Summary = () => {
         </div>
         <div className="box-inner-1 pb-3 mb-3 ">
           <div className="d-flex justify-content-between mb-3 userdetails">
-            <p id="CarName" className="fw-bold">Lightroom Presets</p>
+            <p id="CarName" className="fw-bold">{carData ? carData.carName : 'Loading...'}</p>
             <p id="Price" className="fw-lighter">
               <i style={{ paddingRight: '10px' }} className="fas fa-rupee-sign"></i>
+              {carData ? carData.price : 'Loading...'}
             </p>
           </div>
           <div
@@ -91,21 +111,13 @@ const Summary = () => {
             </div>
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="" className="d-block w-100" alt="" />
+                <img src={carData ? carData.carouselImages.image1 : ''} className="d-block w-100" alt="" />
               </div>
               <div className="carousel-item">
-                <img
-                  src="https://images.pexels.com/photos/258092/pexels-photo-258092.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  className="d-block w-100 h-100"
-                  alt=""
-                />
+                <img src={carData ? carData.carouselImages.image2 : ''} className="d-block w-100 h-100" alt="" />
               </div>
               <div className="carousel-item">
-                <img
-                  src="https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  className="d-block w-100"
-                  alt=""
-                />
+                <img src={carData ? carData.carouselImages.image3 : ''} className="d-block w-100" alt="" />
               </div>
             </div>
             <button

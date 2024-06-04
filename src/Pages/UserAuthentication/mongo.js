@@ -27,7 +27,12 @@ const formDataSchema = new mongoose.Schema({
     carName: {
         type: String,
         required: true,
-        unique:true,
+        unique: true,
+    },
+    price: {
+        type: String,
+        required: true,
+        unique: true
     },
     carouselImages: {
         image1: { type: String, required: true },
@@ -41,6 +46,7 @@ const formDataSchema = new mongoose.Schema({
         white: { type: String, required: true }
     }
 });
+
 
 const FormData = mongoose.model("FormData", formDataSchema);
 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Admin.css'; 
+import './Admin.css';
 
 const Admin = () => {
   const [carName, setCarName] = useState('');
+  const [price, setPrice] = useState('');
   const [carouselImages, setCarouselImages] = useState({
     image1: '',
     image2: '',
@@ -28,6 +29,7 @@ const Admin = () => {
     e.preventDefault();
     const data = {
       carName,
+      price,
       carouselImages,
       colorImages
     };
@@ -35,6 +37,7 @@ const Admin = () => {
     try {
       await axios.post('http://localhost:8000/admin', data);
       setCarName('');
+      setPrice('');
       setCarouselImages({ image1: '', image2: '', image3: '' });
       setColorImages({ red: '', black: '', grey: '', white: '' });
     } catch (error) {
@@ -54,6 +57,15 @@ const Admin = () => {
               type="text"
               value={carName}
               onChange={(e) => setCarName(e.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Price:
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
             />
           </label>
           <br />
