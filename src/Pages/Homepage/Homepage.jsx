@@ -120,7 +120,17 @@ function Homepage() {
         <div className="footer-1">
           <div className="footer-buttons-1">
             <div id="two-button-container-1" className="two-button-container">
-              <button id="footer-top-button-1" className="footer-top-buttons"><strong>Enter your zip code</strong></button>
+            <select id='aaa' className="footer-select" onChange={(e) => openPage(e.target.value)}>
+                <option value="" disabled selected><strong>Models</strong></option>
+                <option value="911">911</option>
+                <option value="Boxster">Boxster</option>
+                <option value="Cayenne">Cayenne</option>
+                <option value="Macan">Macan</option>
+                <option value="Panamera">Panamera</option>
+                <option value="Taycan">Taycan</option>
+                <option value="718">718 Cayman</option>
+                <option value="718">718 Boxster</option>
+              </select>
               <Link to='/trial'><button id="footer-top-button-2" className="footer-top-buttons"><strong>DEVELOPERS</strong></button></Link>
             </div>
             <div id="two-button-container-2" className="two-button-container">
