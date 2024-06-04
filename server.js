@@ -62,10 +62,10 @@ app.get('/admin/car/:model', async (req, res) => {
       res.status(500).send('An error occurred while fetching the car data.');
     }
   });
-  
 
-app.post('/admin', async (req, res) => {
-    const { carName, carouselImages, colorImages } = req.body;
+
+  app.post('/admin', async (req, res) => {
+    const { carName, price, carouselImages, colorImages } = req.body;
 
     try {
         const existingData = await FormData.findOne({ carName });
@@ -75,6 +75,7 @@ app.post('/admin', async (req, res) => {
         } else {
             const formData = new FormData({
                 carName,
+                price,
                 carouselImages,
                 colorImages
             });
