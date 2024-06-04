@@ -11,6 +11,7 @@ import LoanCalculator from './Pages/Overview/emi';
 import Summary from './Pages/Summary/summary';
 import Details from './Pages/Models/Details';
 import GetInTouch from './Pages/Homepage/GetInTouch/getInTouch';
+import Trial from './Pages/Portfolio/Trial';
 
 function Root() {
   return (
@@ -27,6 +28,7 @@ function Root() {
         <Route path='/Summary' element={<Summary/>}/>
         <Route path='/details' element={<Details/>}/>
         <Route path='/touch' element={<GetInTouch/>}/>
+        <Route path='/trial' element={<Trial/>}/>
       </Routes>
     </BrowserRouter>
   );

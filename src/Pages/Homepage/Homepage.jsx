@@ -121,7 +121,7 @@ function Homepage() {
           <div className="footer-buttons-1">
             <div id="two-button-container-1" className="two-button-container">
               <button id="footer-top-button-1" className="footer-top-buttons"><strong>Enter your zip code</strong></button>
-              <button id="footer-top-button-2" className="footer-top-buttons"><strong>BUILD YOUR OWN</strong></button>
+              <Link to='/trial'><button id="footer-top-button-2" className="footer-top-buttons"><strong>DEVELOPERS</strong></button></Link>
             </div>
             <div id="two-button-container-2" className="two-button-container">
               <Link to='/touch'><button id="footer-top-button" className="footer-top-buttons"><strong>GET IN TOUCH</strong></button></Link>

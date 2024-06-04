@@ -1,0 +1,56 @@
+.Trial-App {
+    text-align: center;
+  }
+  
+  .Trial-App-header {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+  }
+  
+  .Trial-portfolio {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .Trial-developer-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .Trial-developer-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .Trial-developer-name {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
+  .Trial-developer-role {
+    font-size: 1.2em;
+    color: #777;
+    margin: 10px 0;
+  }
+  
+  .Trial-developer-bio {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .Trial-developer-card:hover {
+    transform: translateY(-10px);
+  }
+  
