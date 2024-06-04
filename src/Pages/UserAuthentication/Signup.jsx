@@ -32,10 +32,8 @@ function Signup() {
     return (
         <div className="cbw-body">
             <div className="cbw-container">
-                <h1>Car Buying Website</h1>
-                <h2>Signup</h2>
+                <h1>Sign Up</h1>
                 <form className="cbw-form" onSubmit={submit}>
-                    <label htmlFor="signupEmail">Email:</label>
                     <input
                         type="email"
                         id="signupEmail"
@@ -43,7 +41,6 @@ function Signup() {
                         placeholder="Email"
                         required
                     />
-                    <label htmlFor="signupPassword">Password:</label>
                     <input
                         type="password"
                         id="signupPassword"
@@ -52,9 +49,8 @@ function Signup() {
                         required
                     />
                     <input type="submit" value="Signup" className="cbw-button" />
-                    <p>OR</p>
                     <br />
-                    <Link to="/login">Login Page</Link>
+                    <Link to="/login">Login</Link>
                 </form>
             </div>
         </div>

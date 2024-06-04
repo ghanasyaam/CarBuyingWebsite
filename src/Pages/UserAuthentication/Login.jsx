@@ -35,18 +35,15 @@ function Login() {
     return (
 <div className="cbw-body">
 <div className="cbw-container">
-<h1>Car Buying Website</h1>
+<h1>Login</h1>
 
 <div id="UserLogin" className="cbw-tabcontent">
-  <h2>User Login</h2>
   <form className="cbw-form" id="userLoginForm" onSubmit={submit}>
-    <label htmlFor="userUsername">Username:</label>
     <input
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                 />
-    <label htmlFor="userPassword">Password:</label>
     <input
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
@@ -54,7 +51,6 @@ function Login() {
                 />
 
     <input type="submit" value="Login" className="cbw-button" />
-    <p>OR</p>
             <br />
             <Link to="/signup">Signup Page</Link>
   </form>

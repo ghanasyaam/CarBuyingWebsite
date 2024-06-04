@@ -1,11 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 const Summary = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    cardDetails: '',
+    expiryDate: '',
+    cvv: '',
+    cardholderName: '',
+    country: '',
+    zip: '',
+    state: ''
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const validate = () => {
+    let formErrors = {};
+    if (!formData.email) formErrors.email = "Email is required";
+    if (!/\S+@\S+\.\S+/.test(formData.email)) formErrors.email = "Email address is invalid";
+    if (!formData.cardDetails) formErrors.cardDetails = "Card details are required";
+    if (!formData.expiryDate) formErrors.expiryDate = "Expiry date is required";
+    if (!formData.cvv) formErrors.cvv = "CVV is required";
+    if (formData.cvv.length !== 3) formErrors.cvv = "CVV must be 3 digits";
+    if (!formData.cardholderName) formErrors.cardholderName = "Cardholder name is required";
+    if (!formData.country) formErrors.country = "Country is required";
+    if (!formData.zip) formErrors.zip = "ZIP code is required";
+    if (!formData.state) formErrors.state = "State is required";
+
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
+
   const paymentcompleted = (event) => {
     event.preventDefault();
-    alert("Payment completed");
+    if (validate()) {
+      alert("Payment completed");
+    }
   };
 
   return (
@@ -109,34 +145,94 @@ const Summary = () => {
           <form>
             <div className="mb-3">
               <p className="dis fw-bold mb-2">Email address</p>
-              <input id="email" className="form-control" type="email" />
+              <input
+                id="email"
+                className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <div className="invalid-feedback">{errors.email}</div>}
             </div>
             <div>
               <p className="dis fw-bold mb-2">Card details</p>
               <div className="d-flex align-items-center justify-content-between card-atm border rounded">
                 <div className="fab fa-cc-visa ps-3"></div>
-                <input type="text" className="form-control" placeholder="Card Details" />
+                <input
+                  id="cardDetails"
+                  type="text"
+                  className={`form-control ${errors.cardDetails ? 'is-invalid' : ''}`}
+                  placeholder="Card Details"
+                  value={formData.cardDetails}
+                  onChange={handleChange}
+                />
                 <div className="d-flex w-50">
-                  <input type="text" className="form-control px-0" placeholder="MM/YY" />
-                  <input type="password" maxLength={3} className="form-control px-0" placeholder="CVV" />
+                  <input
+                    id="expiryDate"
+                    type="text"
+                    className={`form-control px-0 ${errors.expiryDate ? 'is-invalid' : ''}`}
+                    placeholder="MM/YY"
+                    value={formData.expiryDate}
+                    onChange={handleChange}
+                  />
+                  <input
+                    id="cvv"
+                    type="password"
+                    maxLength={3}
+                    className={`form-control px-0 ${errors.cvv ? 'is-invalid' : ''}`}
+                    placeholder="CVV"
+                    value={formData.cvv}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className="my-3 cardname">
                 <p className="dis fw-bold mb-2">Cardholder name</p>
-                <input id="Cardholder-name" className="form-control" type="text" />
+                <input
+                  id="cardholderName"
+                  className={`form-control ${errors.cardholderName ? 'is-invalid' : ''}`}
+                  type="text"
+                  value={formData.cardholderName}
+                  onChange={handleChange}
+                />
+                {errors.cardholderName && <div className="invalid-feedback">{errors.cardholderName}</div>}
               </div>
               <div className="address">
                 <p className="dis fw-bold mb-3">Billing address</p>
-                <select className="form-select" aria-label="Default select example">
-                  <option selected hidden>United States</option>
-                  <option value="1">India</option>
-                  <option value="2">Australia</option>
-                  <option value="3">Canada</option>
+                <select
+                  id="country"
+                  className={`form-select ${errors.country ? 'is-invalid' : ''}`}
+                  aria-label="Default select example"
+                  value={formData.country}
+                  onChange={handleChange}
+                >
+                  <option value="" hidden>Select Country</option>
+                  <option value="United States">United States</option>
+                  <option value="India">India</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Canada">Canada</option>
                 </select>
+                {errors.country && <div className="invalid-feedback">{errors.country}</div>}
                 <div className="d-flex">
-                  <input className="form-control zip" type="text" placeholder="ZIP" />
-                  <input className="form-control state" type="text" placeholder="State" />
+                  <input
+                    id="zip"
+                    className={`form-control zip ${errors.zip ? 'is-invalid' : ''}`}
+                    type="text"
+                    placeholder="ZIP"
+                    value={formData.zip}
+                    onChange={handleChange}
+                  />
+                  <input
+                    id="state"
+                    className={`form-control state ${errors.state ? 'is-invalid' : ''}`}
+                    type="text"
+                    placeholder="State"
+                    value={formData.state}
+                    onChange={handleChange}
+                  />
                 </div>
+                {errors.zip && <div className="invalid-feedback">{errors.zip}</div>}
+                {errors.state && <div className="invalid-feedback">{errors.state}</div>}
                 <div className="my-3">
                   <p className="dis fw-bold mb-2">GST Number</p>
                   <div className="inputWithcheck">

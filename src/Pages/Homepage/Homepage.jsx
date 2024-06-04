@@ -125,11 +125,11 @@ function Homepage() {
             </div>
             <div id="two-button-container-2" className="two-button-container">
               <Link to='/touch'><button id="footer-top-button" className="footer-top-buttons"><strong>GET IN TOUCH</strong></button></Link>
-              <button id="footer-top-button" className="footer-top-buttons"><strong>TEST DRIVE</strong></button>
+              <Link to={'https://www.carwale.com/compare-cars/'}><button id="footer-top-button" className="footer-top-buttons"><strong>COMPARE</strong></button></Link>
             </div>
             <div id="two-button-container-3" className="two-button-container">
               <Link to='/quote'><button id="footer-top-button" className="footer-top-buttons"><strong>QUOTE</strong></button></Link>
-              <button id="footer-top-button" className="footer-top-buttons"><strong>DEALER LOCATOR</strong></button>
+              <Link to={"https://www.google.com/maps/search/Porsche/@13.7255275,69.5930934,6z/data=!3m1!4b1?authuser=0&entry=ttu"}><button id="footer-top-button" className="footer-top-buttons"><strong>DEALER LOCATOR</strong></button></Link>
             </div>
           </div>
         </div>
@@ -137,7 +137,7 @@ function Homepage() {
           <img className="footer-logo" src={footerLogo} alt="Footer Logo" />
         </div>
         <div className="footer-3">
-          <div className="footer-links-container">
+          {/* <div className="footer-links-container">
             <div className="footer-link-boxes">
               <select className="footer-select" onChange={(e) => openPage(e.target.value)}>
                 <option value="" disabled selected>Models</option>
@@ -185,7 +185,7 @@ function Homepage() {
               <button className="footer-select-buttons">Stay Up To Date</button>
               <button id="newsletter-button" className="footer-select-buttons">Subscribe To Our Newsletter</button>
             </div>
-          </div>
+          </div> */}
           <div className="footer-social-media" id="footer-social-media">
           <Link to='https://www.facebook.com/porsche'  className='social-media-links'><FontAwesomeIcon icon={faFacebook} />  Facebook</Link>
           <Link to='https://twitter.com/Porsche' className='social-media-links'><FontAwesomeIcon icon={faXTwitter} />  Twitter</Link>          <Link to='https://www.linkedin.com/company/porsche-ag/'  className='social-media-links'><FontAwesomeIcon icon={faLinkedin} />  LinkedIn</Link>          <Link to='https://www.instagram.com/porsche/' className='social-media-links'><FontAwesomeIcon icon={faInstagram} />  Instagram</Link>
