@@ -44,22 +44,9 @@ const Admin = () => {
 
   return (
     <div className="admin-container">
-      <div className="sidebar">
-        <div className="profile-pic">
-          <img src="profile-pic-url" alt="Profile" />
-        </div>
-        <ul>
-          <li>Profile</li>
-          <li>Categories</li>
-          <li>Browse Categories</li>
-          <li>Add Products</li>
-          <li>View Products</li>
-          <li>New user requests</li>
-          <li>View user</li>
-        </ul>
-      </div>
+
       <div className="content">
-        <h1>Add Car Details</h1>
+        <h1 id='add'>Add Car Details</h1>
         <form onSubmit={handleSubmit} className="admin-form">
           <label>
             Car Name:
